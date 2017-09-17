@@ -5,9 +5,21 @@
 	<script type="text/javascript">
 		function loadWebsite() {
 			console.log("Fetching...");
-			$.get("https://trello.com", function(response) {
+			/*$.get("https://trello.com", function(response) {
 				console.log(response);
-			});
+			});*/
+			var request = new XMLHttpRequest();
+			request.open('GET', 'https://trello.com', true);
+			request.setRequestHeader('Access-Control-Allow-Origin', '*');
+			request.setRequestHeader('Content-Type', 'application/json');
+			request.onerror= function() {
+				console.log('Fail :(');
+			}
+			request.onload = function() {
+				console.log('Success!');
+			}
+			request.send();
+			console.log(request);
 			console.log("Fetched!");
 		}
 	</script>
