@@ -19,8 +19,10 @@
 			request.onerror= function() {
 				console.log('Fail :(');
 			}
-			request.onload = function() {
+			request.onload = function(response) {
 				console.log('Success!');
+				console.log(response);
+
 			}
 			request.send(null);
 			var headers = request.getAllResponseHeaders().toLowerCase();
