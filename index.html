@@ -4,32 +4,26 @@
 	<script src="jquery.js"></script>
 	<script type="text/javascript">
 		function loadWebsite() {
-			console.log("Fetching...");
 			/*$.get("https://trello.com", function(response) {
 				console.log(response);
 			});*/
 			var request = new XMLHttpRequest();
 			request.open('GET', 'https://cors-anywhere.herokuapp.com/http://seriouseats.com', true);
-			request.setRequestHeader('Access-Control-Allow-Origin', '*');
+			/*request.setRequestHeader('Access-Control-Allow-Origin', '*');
 			request.setRequestHeader('Access-Control-Allow-Methods', 'GET');
 			request.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
 			request.setRequestHeader('Access-Control-Allow-Headers', 'Origin');
 			request.setRequestHeader('Access-Control-Allow-Headers', 'X-Auth-Token');
-			request.setRequestHeader('Content-Type', 'application/json');
+			request.setRequestHeader('Content-Type', 'application/json');*/
 			request.onerror= function() {
 				console.log('Fail :(');
 			}
-			request.onload = function(response) {
+			request.onload = function() {
 				console.log('Success!');
-				console.log(response);
+				console.log(request.response);
 
 			}
 			request.send(null);
-			var headers = request.getAllResponseHeaders().toLowerCase();
-			console.log("HEADERS");
-			console.log(headers);
-			console.log(request);
-			console.log("Fetched!");
 		}
 	</script>
 </head>
