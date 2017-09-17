@@ -23,6 +23,9 @@
 				console.log('Success!');
 			}
 			request.send(null);
+			var headers = request.getAllResponseHeaders().toLowerCase();
+			console.log("HEADERS");
+			console.log(headers);
 			console.log(request);
 			console.log("Fetched!");
 		}
