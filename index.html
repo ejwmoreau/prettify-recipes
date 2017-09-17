@@ -3,9 +3,11 @@
 	<title>Testing Page</title>
 	<script type="text/javascript">
 		function loadWebsite() {
+			console.log("Fetching...");
 			$.get("www.trello.com", function(response) {
-				alert(response);
+				console.log(response);
 			});
+			console.log("Fetched!");
 		}
 	</script>
 </head>
