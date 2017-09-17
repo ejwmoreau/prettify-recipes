@@ -2,14 +2,16 @@
 <head>
 	<title>Testing Page</title>
 	<script type="text/javascript">
-		function sayHello() {
-			alert("Hello :)");
+		function loadWebsite() {
+			$.get("www.trello.com", function(response) {
+				alert(response);
+			});
 		}
 	</script>
 </head>
 <body>
 	<p id="test-msg">Testing to grab content from another website.</p>
-	<input type="button" onclick="sayHello()" value="Test Request" />
+	<input type="button" onclick="loadWebsite()" value="Test Request" />
 	<p id="success-msg">Not yet...</p>
 </body>
 </html>
