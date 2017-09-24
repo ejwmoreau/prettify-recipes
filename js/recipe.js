@@ -3,10 +3,10 @@ function processRecipe(url) {
 	request.open('GET', url);
 	//request.responseType = '???';
 
-	request.onerror() = function() {
+	request.onerror = function() {
 		console.log("Couldn't load recipe from: " + url)
 	}
-	request.onload() = function() {
+	request.onload = function() {
 		console.log("Recipe was loaded successfully.");
 		console.log(request.responseText);
 		cleanAndSendRecipe(request.responseText, url);
