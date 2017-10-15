@@ -15,31 +15,13 @@ function grabRecipe() {
 
 	data = {}
 	$.get(url, function(data) {
-		// console.log(data);
+		console.log(data);
 		formatAndSendRecipe(data);
 	})
 	.fail(function(msg) {
 		console.log(msg);
 		$("#return-msg").text("Sorry, I couldn't load that recipe url :(");
 	});
-}
-
-/**
- * Extract the relevant parts of the recipe to be used i.e. ingredients and
- * directions.
- * @param  {string} data The html of the url.
- * @param  {string} url The given url.
- * @return {Object} Returns the recipe ingredents and directions.
- */
-function extractData(data, url) {
-	cleaned_data = {};
-
-	// Grab a title/name for the recipe.
-	// Grab the ingredients and save under cleaned_data['ingredients'].
-	// Grab the directions and save under cleaned_data['directions'].
-
-	// NOTE: May need to grab differently depending on website.
-	return cleaned_data;
 }
 
 /**
