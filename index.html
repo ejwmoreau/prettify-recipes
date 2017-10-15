@@ -32,8 +32,11 @@
 	</script>-->
 </head>
 <body>
-	<p id="test-msg">Testing to grab content from another website.</p>
-	<input type="button" onclick="grabRecipe()" value="Test Request" />
-	<p id="success-msg">Not yet...</p>
+	<p>Submit a URL to a recipe:</p>
+	<form id="recipe-form">
+		<input id="recipe-url" type="text" placeholder="Recipe URL here...">
+		<input type="button" onclick="grabRecipe()" value="Submit Recipe">
+	</form>
+	<p id="return-msg"></p>
 </body>
 </html>

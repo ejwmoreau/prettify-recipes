@@ -1,33 +1,33 @@
 /**
  * Query the url and grab the html.
- * @param {string} url The user provided url to scrape the recipe information.
  */
-function grabRecipe(url) {
+function grabRecipe() {
+	url = $("#recipe-url").val();
+
 	// Ensures the url is valid.
 	if (!url || !(url.startsWith('http://') || url.startsWith('https://'))) {
 		return;
+	} else if (url.startsWith('http://')) {
+		url = 'https://cors-anywhere.herokuapp.com/' + url;
 	}
 
-	var request = new XMLHttpRequest();
-	request.open('GET', url);
+	$("#return-msg").text("Loading...");
 
-	request.onerror = function() {
-		console.log("Couldn't load recipe from: " + url)
-	};
-
-	request.onload = function() {
-		console.log("Recipe was loaded successfully.");
-		console.log(request.responseText);
-		formatAndSendRecipe(request.responseText, url);
-	};
-
-	request.send();
+	data = {}
+	$.get(url, function(data) {
+		// console.log(data);
+		formatAndSendRecipe(data);
+	})
+	.fail(function(msg) {
+		console.log(msg);
+		$("#return-msg").text("Sorry, I couldn't load that recipe url :(");
+	});
 }
 
 /**
  * Extract the relevant parts of the recipe to be used i.e. ingredients and
  * directions.
- * @param  {Object} data The html of the url.
+ * @param  {string} data The html of the url.
  * @param  {string} url The given url.
  * @return {Object} Returns the recipe ingredents and directions.
  */
@@ -52,6 +52,7 @@ function formatAndSendRecipe(data, url) {
 	cleaned_data = extractData(data, url);
 	formatted_data = formatRecipe(cleaned_data, url);
 
+	return;
 	// Send data to Trello via API.
 	var request = new XMLHttpRequest();
 	// TODO: Other parts of request.
