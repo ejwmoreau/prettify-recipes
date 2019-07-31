@@ -6,34 +6,26 @@
 	<title>Testing Page</title>
 	<script src="js/jquery.js"></script>
 	<script src="js/recipe.js"></script>
-	<!--<script type="text/javascript">
-		function loadWebsite(url) {
-			/*$.get("https://trello.com", function(response) {
-				console.log(response);
-			});*/
-			var request = new XMLHttpRequest();
-			request.open('GET', 'https://cors-anywhere.herokuapp.com/http://seriouseats.com', true);
-			/*request.setRequestHeader('Access-Control-Allow-Origin', '*');
-			request.setRequestHeader('Access-Control-Allow-Methods', 'GET');
-			request.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
-			request.setRequestHeader('Access-Control-Allow-Headers', 'Origin');
-			request.setRequestHeader('Access-Control-Allow-Headers', 'X-Auth-Token');
-			request.setRequestHeader('Content-Type', 'application/json');*/
-			request.onerror= function() {
-				console.log('Fail :(');
-			}
-			request.onload = function() {
-				console.log('Success!');
-				console.log(request.response);
-
-			}
-			request.send(null);
-		}
-	</script>-->
 </head>
+
 <body>
-	<p id="test-msg">Testing to grab content from another website.</p>
-	<input type="button" onclick="grabRecipe()" value="Test Request" />
-	<p id="success-msg">Not yet...</p>
+	<h1>Formatting Recipes into Markdown</h1>
+	<div>
+		<form>
+			<label>Ingredients List</p>
+			<textarea id="ingredients"></textarea>
+			<br/>
+			<label>Recipe Instructions</p>
+			<textarea id="instructions"></textarea>
+			<br/>
+			<input type="button" onclick="cleanRecipe()" value="Format this recipe" />
+		</form>
+	</div>
+	<div>
+		<p>Formatted Ingredients List</p>
+		<textarea id="formattedIngredients"></textarea>
+		<p>Formatted Recipe Instructions</p>
+		<textarea id="formattedInstructions"></textarea>
+	</div>
 </body>
 </html>

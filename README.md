@@ -1,2 +1,2 @@
 # prettify-recipes
-Webpage that prettifies recipes, then submits them to Trello
+Webpage that prettifies recipes into markdown.
