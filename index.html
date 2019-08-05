@@ -6,6 +6,31 @@
 	<title>Testing Page</title>
 	<script src="js/jquery.js"></script>
 	<script src="js/recipe.js"></script>
+	<script src="js/parser.js"></script>
+	<!--<script type="text/javascript">
+		function loadWebsite(url) {
+			/*$.get("https://trello.com", function(response) {
+				console.log(response);
+			});*/
+			var request = new XMLHttpRequest();
+			request.open('GET', 'https://cors-anywhere.herokuapp.com/http://seriouseats.com', true);
+			/*request.setRequestHeader('Access-Control-Allow-Origin', '*');
+			request.setRequestHeader('Access-Control-Allow-Methods', 'GET');
+			request.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
+			request.setRequestHeader('Access-Control-Allow-Headers', 'Origin');
+			request.setRequestHeader('Access-Control-Allow-Headers', 'X-Auth-Token');
+			request.setRequestHeader('Content-Type', 'application/json');*/
+			request.onerror= function() {
+				console.log('Fail :(');
+			}
+			request.onload = function() {
+				console.log('Success!');
+				console.log(request.response);
+
+			}
+			request.send(null);
+		}
+	</script>-->
 </head>
 
 <body>
